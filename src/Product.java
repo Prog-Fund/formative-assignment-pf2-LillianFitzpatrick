@@ -11,7 +11,7 @@ public class Product {
 
     private int productCode = 5000 ;  // valid values 1000 - 5000 inclusive - default value is 5000
 
-    private double unitCost;  //valid values are any positive number - default to 1
+    private double unitCost = 1;  //valid values are any positive number - default to 1
 
     private boolean inCurrentProductLine;   // no validation required. Default
     /**
@@ -23,7 +23,7 @@ public class Product {
     public Product(String productName, int productCode, double unitCost, boolean inCurrentProductLine) {
         setProductCode(productCode);
         this.productName = productName;
-        this.unitCost = unitCost;
+        setUnitCost (unitCost);
         this.inCurrentProductLine = inCurrentProductLine;
     }
 
@@ -82,7 +82,9 @@ public class Product {
      * @param unitCost The new unit cost for the product
      */
     public void setUnitCost(double unitCost) {
+        if ((unitCost > 0) && (unitCost <= 99999)) {
             this.unitCost = unitCost;
+        }
     }
     /**
      * Updates the boolean indicating whether the product is in the current product line or not.
